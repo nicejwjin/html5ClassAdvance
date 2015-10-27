@@ -1,0 +1,72 @@
+<html>
+<head>
+  <meta charset="utf-8"/>
+  <script>
+    var db=openDatabase("EmpDB", "", 'Emp Database', 1024*1024);
+    db.transaction(function (tx) {
+      tx.executeSql("create table if not exists emp ("
+        + "emp_id integer primary key autoincrement, "
+        + "name char(20), tel char(15))"
+      )
+    });
+    function select() {
+      db.transaction(function (tx) {
+        tx.executeSql("select * from emp order by name", [], function(tx, rs) {
+          var emp_list = document.getElementById("emp_list");
+          emp_list.innerHTML = "";
+          var rows = rs.rows;
+          for (var i = 0; i < rows.length; i++) {
+            var row = rows.item(i);
+            var option = new Option(row.name + ", " + row.tel, row.emp_id);
+            emp_list.options[emp_list.options.length] = option;
+          }
+        })
+      });
+    }
+    function insert() {
+      var name = document.getElementById("name").value;
+      var tel = document.getElementById("tel").value;
+      if (name == "" || tel == "") {
+        alert("insert name or tel.");
+        return;
+      }
+      db.transaction(function (tx) {
+        tx.executeSql("insert into emp (name, tel) values (?, ?)",
+          [name, tel],
+          function (tx, rs) {
+            alert("record added.");
+            select();
+          }, function (err) {
+            alert(err);
+          }
+        );
+      });
+    }
+    function del() {
+      var emp_list = document.getElementById("emp_list");
+      if (emp_list.selectedIndex < 0) {
+        alert("choose data to be removed");
+        return;
+      }
+      var emp_id = emp_list.options[emp_list.selectedIndex].value;
+      db.transaction(function (tx) {
+        tx.executeSql("delete from emp where emp_id = ?",
+          [emp_id],
+          function() {
+            select();
+          }
+        );
+      });
+    }
+  </script>
+</head>
+<body onload="select()">
+이름 <input type="text" id="name" style="width:60px;"/>
+전화번호 <input type="text" id="tel" style="width:100px;"/>
+<button onclick="insert()">Insert</button>
+<hr/>
+<select id="emp_list" size="3" style="width:180px;"></select>
+<button onclick="del()">remove</button>
+
+</body>
+</html>

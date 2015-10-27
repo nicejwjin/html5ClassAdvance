@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>web storage</title>
+  <meta charset="utf-8"/>
+  <style>
+    #local_div, #session_div {
+      border:1px solid #0000ff;
+      margin: 3px;
+      padding: 1px;
+      width: 200px;
+      height: 19px;
+    }
+  </style>
+  <script>
+    function get_value() {
+      get_local();
+      get_session();
+    }
+    function save_local() {
+      var local_value = document.getElementById("local_id");
+      var value = local_value.value;
+      localStorage.setItem("val", value);
+      get_local();
+    }
+
+    function get_local() {
+      var local_div = document.getElementById("local_div");
+      var val = localStorage.getItem("val");
+      if (val) {
+        local_div.innerHTML = "Value : " + val;
+      }
+    }
+
+    function save_session() {
+      var session_value = document.getElementById("session_id");
+      var value = session_value.value;
+      sessionStorage.setItem("val", value);
+      get_session();
+    }
+
+    function get_session() {
+      var session_div = document.getElementById("session_div");
+      var val = sessionStorage.getItem("val");
+      if (val) {
+        session_div.innerHTML = "Value : " + val;
+      }
+    }
+
+    addEventListener("storage", function(e) {
+      if (e.oldValue) {
+        alert("changed from "+ e.oldValue + " to " + e.newValue);
+      }
+    }, false);
+  </script>
+</head>
+<body onload="get_value()">
+<h2>Local Storage</h2>
+<input type="text" name="" value="" id="local_id"/>
+<button onClick="javascript:save_local();">save</button>
+<div id="local_div">Empty</div>
+<br/>
+<h2>Session Storage</h2>
+<input type="text" name="" value="" id="session_id"/>
+<button onclick="javascript:save_session();">save</button>
+<div id="session_div">Empty</div>
+</body>
+
+</html>

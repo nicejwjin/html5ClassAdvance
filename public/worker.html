@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8"/>
+  <title>web worker</title>
+  <script>
+    var worker;
+    function start() {
+      worker = new Worker("worker.js");
+      worker.postMessage(document.getElementById('val').value);
+
+      worker.onmessage = function (event) {
+        document.getElementById('result').value = event.data;
+      };
+      worker.onerror = function (event) {
+        document.getElementById('result').innerHTML = "web worker error!!";
+      };
+    }
+
+    function end() {
+      if (worker) {
+        worker.terminate();
+      }
+    }
+  </script>
+</head>
+
+<body>
+1부터 입력값까지 출력
+<p>
+  <label for="val">input</label>
+  <input type="text" id="val" placeholder="숫자 입력"/>
+</p>
+<p>
+  <input type="button" value="Start" onclick="start()"/>
+  <input type="button" value="stop" onclick="end()"/>
+</p>
+result <input type="text" id="result" readonly/>
+</body>
+
+</html>

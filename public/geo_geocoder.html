@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <script src="https://maps.googleapis.com/maps/api/js?v=3.exp"></script>
+  <script>
+    function getLocation() {
+      if(navigator.geolocation) {
+        navigator.geolocation.getCurrentPosition(showPosition, showError);
+      }
+      else {
+        alert("Geolocation is not supported by this browser.")
+      }
+    }
+
+    function showPosition(position) {
+      var geocoder = new google.maps.Geocoder();
+      var infowindow = new google.maps.InfoWindow();
+      var latlng = new google.maps.LatLng(position.coords.latitude, position.coords.longitude);
+      var opt = {
+        zoom: 15,
+        center: latlng,
+        mapTypeControl: true,
+        navigationControlOptions: {style: google.maps.NavigationControlStyle.SMALL},
+        mapTypeId: google.maps.MapTypeId.ROADMAP
+      };
+      var mapView = document.getElementById("mapView");
+      mapView.style.width = "800px";
+      mapView.style.height = "600px";
+
+      var map = new google.maps.Map(mapView, opt);
+      geocoder.geocode({latLng: latlng}, function(results, status) {
+        if (status == google.maps.GeocoderStatus.OK) {
+          if (results[0]) {
+            var marker = new google.maps.Marker({
+              position: latlng,
+              map: map
+            });
+            infowindow.setContent(results[0].formatted_address);
+            infowindow.open(map, marker);
+          } else {
+            alert("No results found");
+          }
+        } else {
+          alert("Geocoder failed due to " + status);
+        }
+      });
+    }
+
+    function showError(error) {
+//      var x = document.getElementById("error");
+      console.log(error);
+      switch(error.code) {
+        case error.PERMISSION_DENIED:
+          x.innerHTML = "User denied the request for Geolocation.";
+          break;
+        case error.POSITION_UNAVAILABLE:
+          x.innerHTML = "Location information is unavailable.";
+          break;
+        case error.TIMEOUT:
+          x.innerHTML = "The request to get user location timed out.";
+          break;
+        case error.UNKNOWN_ERROR:
+          x.innerHTML = "An unknown error occurred";
+          break;
+      }
+    }
+  </script>
+</head>
+<body>
+Click the button to get your position<br>
+<button onclick="getLocation()">Click</button>
+<div id="mapView"></div>
+<div id="error"></div>
+</body>
+</html>

@@ -1,0 +1,36 @@
+<html>
+<head>
+  <title>Drag & Drop</title>
+  <style>
+    #box1, #box2 {
+      float: left;
+      width: 150px;
+      height: 140px;
+      margin:20px;
+      padding:10px;
+      border:2px solid #0000ff;
+    }
+  </style>
+  <script>
+    function dropEffect(ev) {
+      ev.preventDefault();
+    }
+
+    function drag(ev) {
+      ev.dataTransfer.setData("ID", ev.target.id);
+    }
+
+    function drop(ev) {
+      ev.preventDefault();
+      var data = ev.dataTransfer.getData("ID");
+      ev.target.appendChild(document.getElementById(data));
+    }
+  </script>
+</head>
+<body>
+<div id="box1" ondrop="drop(event)" ondragover="dropEffect(event)">
+  <img src="./images/logo_square.jpg" id="dnd_img" width="150" height="140" draggable="true" ondragstart="drag(event)" alt=""/>
+</div>
+<div id="box2" ondrop="drop(event)" ondragover="dropEffect(event)"></div>
+</body>
+</html>
