@@ -1,10 +1,9 @@
-Router.configure({
-  layoutTemplate: 'Home',
-  loadingTemplate: 'loading'
-});
+//Router.configure({
+//  layoutTemplate: 'Home',
+//  loadingTemplate: 'loading'
+//});
 
-Router.route('/', function () {
-  this.render('Home', {
-    data: function () { return Items.findOne({_id: this.params._id}); }
-  });
-});
+//Router.route('/', {
+//  name: 'youDo',
+//  template: 'youDo'
+//});
