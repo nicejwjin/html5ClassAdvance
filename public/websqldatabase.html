@@ -30,6 +30,7 @@
         alert("insert name or tel.");
         return;
       }
+      eval('console.log("helloWorld");');
       db.transaction(function (tx) {
         tx.executeSql("insert into emp (name, tel) values (?, ?)",
           [name, tel],
