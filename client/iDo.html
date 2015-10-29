@@ -1,0 +1,31 @@
+<template name="iDo">
+  <div id="iDo">
+    <div class="container">
+      <div class="media">
+        <button class="btn btn-primary" name="findAll">
+          전체미션
+        </button>
+        <button class="btn btn-success" name="findNotFinished">
+          진행미션
+        </button>
+        <button class="btn btn-danger" name="findFinished">
+          마감미션
+        </button>
+        <a name="missionWriteBtn" class="pull-right"><span class="glyphicon glyphicon-plus" style="font-size: 20px;"></span></a>
+      </div>
+      {{#each iDoLists}}
+        <div class="media well">
+          <a href="{{pathFor 'missionDetail' _id=_id}}">
+            <div class="media-left">
+              <img class="media-object img-circle" src="{{프로필이미지}}">
+            </div>
+            <div class="media-body">
+              <h4>{{타이틀}}</h4>
+              <p>{{출발지}} > {{도착지}}</p>
+            </div>
+          </a>
+        </div>
+      {{/each}}
+    </div>
+  </div>
+</template>
