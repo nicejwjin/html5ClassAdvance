@@ -1,0 +1,8 @@
+<윈도우즈>
+미티어 실행과 실행 취소: meteor / ctrl+c
+
+<리눅스>
+screen
+nohup meteor & : 프로세스가 종료되지 않는 영구 실행법.
+kill [프로세스 번호] : 프로세스 번호로 종료.
+ps -ef | grep meteor : 미티어 프로세스 확인
