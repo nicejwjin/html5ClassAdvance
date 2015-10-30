@@ -1,0 +1,8 @@
+{
+  "public": {
+    "imageServerIp": "",
+    "imageServerPort": "",
+    "imageRepositoryIp": "",
+    "imageRepositoryPort": ""
+  }
+}

@@ -1,0 +1,75 @@
+<template name="missionEdit">
+  <div id="missionEdit" class="content">
+    {{#with objMission}}
+      <form class="form-horizontal">
+        <div class="form-group">
+          <label for="autoCompleteDeparture" class="col-xs-3 control-label">출발지</label>
+          <div class="col-xs-9">
+            <input value="{{출발지}}" type="text" name="출발지" class="form-control" id="autoCompleteDeparture" placeholder="Seoul">
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="autoCompleteArrival" class="col-xs-3 control-label">도착지</label>
+          <div class="col-xs-9">
+            <input value="{{도착지}}" type="text" name="도착지" class="form-control" id="autoCompleteArrival" placeholder="Paris">
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="마감시간" class="col-xs-3 control-label">마감시간</label>
+          <div class="col-xs-9">
+            <input value="{{마감시간}}" type="number" class="form-control" placeholder="000 시간후 마감" name="마감시간" id="마감시간">
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="타이틀" class="col-xs-3 control-label">타이틀</label>
+          <div class="col-xs-9">
+            <input value="{{타이틀}}" type="text" class="form-control" placeholder="의뢰제목" name="타이틀" id="타이틀">
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="리워드" class="col-xs-3 control-label">리워드</label>
+          <div class="col-xs-9">
+            <input value="{{리워드}}" type="text" class="form-control" placeholder="미션 완료 보상" name="리워드" id="리워드">
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="상세내용" class="col-xs-3 control-label">상세내용</label>
+          <div class="col-xs-9">
+            <textarea class="form-control" rows="8" placeholder="상세내용" name="상세내용">{{상세내용}}</textarea>
+          </div>
+        </div>
+      </form>
+      <button class="btn btn-success btn-block" name="btnSubmit" style="margin-top: 10px;">Submit</button>
+
+      <!--<div class="card">-->
+        <!--<form class="input-group">-->
+          <!--<div class="input-row">-->
+            <!--<label>출발지</label>-->
+            <!--<input value="{{출발지}}" type="text" placeholder="Seoul" name="출발지" id="autoCompleteDeparture">-->
+          <!--</div>-->
+          <!--<div class="input-row">-->
+            <!--<label>도착지</label>-->
+            <!--<input value="{{도착지}}" type="text" placeholder="Paris" name="도착지" id="autoCompleteArrival">-->
+          <!--</div>-->
+          <!--<div class="input-row">-->
+            <!--<label>마감시간</label>-->
+            <!--<input type="number" placeholder="000 시간후 마감" name="마감시간">-->
+          <!--</div>-->
+          <!--<div class="input-row">-->
+            <!--<label>타이틀</label>-->
+            <!--<input value="{{타이틀}}" type="text" placeholder="의뢰제목" name="타이틀">-->
+          <!--</div>-->
+          <!--<div class="input-row">-->
+            <!--<label>리워드</label>-->
+            <!--<input value="{{리워드}}" type="text" placeholder="미션 완료 보상" name="리워드">-->
+          <!--</div>-->
+        <!--</form>-->
+
+      <!--</div>-->
+      <!--<div class="content-padded">-->
+        <!--<textarea rows="8" placeholder="상세내용" name="상세내용">{{{상세내용}}}</textarea>-->
+        <!--<button class="btn btn-positive btn-block" name="btnSubmit">Submit</button>-->
+      <!--</div>-->
+    {{/with}}
+  </div>
+</template>

@@ -1,37 +1,60 @@
 <template name="settings">
   <div id="settings" class="container">
+    <!--{{> loginModal}}-->
     <ul class="list-group">
       <li class="list-group-item">
         <strong>계정</strong>
       </li>
+      {{#if currentUser}}
       <li class="list-group-item">
-        <a href="#">프로필</a>
+        <a class="navigate-right" href="{{pathFor 'profile'}}">
+          프로필
+        </a>
       </li>
       <li class="list-group-item">
-        <a href="#">환경설정</a>
+        <a class="navigate-right">
+          환경설정
+        </a>
       </li>
+      {{/if}}
+      <!--<li class="list-group-item">-->
+        <!--<a class="navigate-right" name="logInAndOut">-->
+          <!--{{#if currentUser}}로그아웃{{else}}로그인{{/if}}-->
+        <!--</a>-->
+      <!--</li>-->
       <li class="list-group-item">
         <strong>서비스</strong>
       </li>
       <li class="list-group-item">
-        <a href="#">서비스소개</a>
+        <a class="navigate-right" href="{{pathFor 'servicePage' pageTitle='서비스소개' image='txt_about_kr.png'}}">
+          서비스소개
+        </a>
       </li>
       <li class="list-group-item">
-        <a href="#">안전거래</a>
+        <a class="navigate-right" href="{{pathFor 'servicePage' pageTitle='안전거래' image='txt_safe_kr.png'}}">
+          안전거래
+        </a>
       </li>
       <li class="list-group-item">
-        <a href="#">주의사항</a>
+        <a class="navigate-right" href="{{pathFor 'servicePage' pageTitle='주의사항' image='txt_qna_kr.png'}}">
+          주의사항
+        </a>
       </li>
       <li class="list-group-item">
-        <a href="#">회사소개</a>
+        <a class="navigate-right" href="{{pathFor 'servicePage' pageTitle='회사소개' image='txt_team_kr.png'}}">
+          회사소개
+        </a>
       </li>
       <li class="list-group-item">
-        <a href="#">연락처</a>
+        <a class="navigate-right">
+          연락처
+        </a>
       </li>
       <li class="list-group-item">
-        <a href="#">개인정보 취급방침 & 이용약관</a>
+        <a class="navigate-right">
+          개인정보 취급방침 & 이용약관
+        </a>
       </li>
-
     </ul>
   </div>
 </template>

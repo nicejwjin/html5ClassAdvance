@@ -1,0 +1,16 @@
+<head>
+  <meta charset="utf-8">
+  <title>Hello Mission!</title>
+  <!-- Sets initial viewport load and disables zooming  -->
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+</head>
+
+<template name="layout">
+  {{> loginModal}}
+  <!--{{#if mainMenu}}-->
+    {{> header}}
+  <!--{{else}}-->
+    <!--{{> header_detail}}-->
+  <!--{{/if}}-->
+  {{> yield}}
+</template>

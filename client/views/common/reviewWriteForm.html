@@ -1,0 +1,33 @@
+<template name="reviewWriteForm">
+  <div class="container" id="reviewWriteForm">
+    <form class="form-horizontal">
+      <div class="form-group">
+        <label for="타이틀" class="col-xs-3 control-label">타이틀</label>
+        <div class="col-xs-9">
+          <input type="text" class="form-control" placeholder="후기제목" name="타이틀" id="타이틀">
+        </div>
+      </div>
+      <div class="form-group">
+        <label for="reviewDeparture" class="col-xs-3 control-label">출발지</label>
+        <div class="col-xs-9">
+          <input type="text" name="출발지" class="form-control" id="reviewDeparture" placeholder="Seoul">
+        </div>
+      </div>
+      <div class="form-group">
+        <label for="reviewArrival" class="col-xs-3 control-label">도착지</label>
+        <div class="col-xs-9">
+          <input type="text" name="도착지" class="form-control" id="reviewArrival" placeholder="Paris">
+        </div>
+      </div>
+      <div class="form-group">
+        <div class="col-xs-12">
+          <textarea class="form-control" rows="8" placeholder="상세내용" name="상세내용"></textarea>
+          <input class="form-control" type="file" alt="사진첨부" name="첨부이미지1">
+          <input class="form-control" type="file" alt="사진첨부" name="첨부이미지2">
+          <input class="form-control" type="file" alt="사진첨부" name="첨부이미지3">
+        </div>
+      </div>
+    </form>
+    <button class="btn btn-success btn-block" name="btnSubmit" style="margin-top: 10px;">Submit</button>
+  </div>
+</template>

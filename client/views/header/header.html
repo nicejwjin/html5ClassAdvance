@@ -17,7 +17,9 @@
             <li><a data-toggle="collapse" data-target=".navbar-collapse.in" href="{{pathFor 'youDo'}}">해주세요</a></li>
             <li><a data-toggle="collapse" data-target=".navbar-collapse.in" href="{{pathFor 'iDo'}}">해드려요</a></li>
             <li><a data-toggle="collapse" data-target=".navbar-collapse.in" href="{{pathFor 'review'}}">사용후기</a></li>
-            <li><a data-toggle="collapse" data-target=".navbar-collapse.in" href="{{pathFor 'settings'}}">설정</a></li>
+            {{#if currentUser}}
+              <li><a data-toggle="collapse" data-target=".navbar-collapse.in" href="{{pathFor 'settings'}}">설정</a></li>
+            {{/if}}
             <li class="nav-divider"></li>
             <li><a id="loginout" data-toggle="collapse" data-target=".navbar-collapse.in" href="#">{{loginout}}</a></li>
             <!--<li class="dropdown">-->

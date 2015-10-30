@@ -1,0 +1,66 @@
+<template name="profile">
+  <div id="profile">
+    <div class="container">
+      {{#with profileInfo}}
+        <div class="centered">
+          <div>
+            <img class="img-circle" src="/images/world.png" name="profileImg">
+          </div>
+          <h4>{{profile.firstName}} {{profile.lastName}}</h4>
+        </div>
+        <div class="well">
+          <table class="table">
+            <tr>
+              <td>이름</td>
+              <td>{{username}}</td>
+            </tr>
+            <tr>
+              <td>전화번호</td>
+              <td>000-000-0000</td>
+            </tr>
+            <tr>
+              <td>주소</td>
+              <td>서울시 OOO OOO</td>
+            </tr>
+          </table>
+        </div>
+        <!--<div class="card">-->
+          <!--<ul class="table-view">-->
+            <!--<li class="table-view-cell media">-->
+              <!--<a class="navigate-right">-->
+                <!--<span class="media-object pull-left icon icon-trash"></span>-->
+                <!--<div class="media-body">-->
+                  <!--이름-->
+                <!--</div>-->
+              <!--</a>-->
+            <!--</li>-->
+            <!--&lt;!&ndash;<li class="table-view-cell media">&ndash;&gt;-->
+            <!--&lt;!&ndash;<a class="navigate-right">&ndash;&gt;-->
+            <!--&lt;!&ndash;<span class="media-object pull-left icon icon-gear"></span>&ndash;&gt;-->
+            <!--&lt;!&ndash;<div class="media-body">&ndash;&gt;-->
+            <!--&lt;!&ndash;지역/언어&ndash;&gt;-->
+            <!--&lt;!&ndash;</div>&ndash;&gt;-->
+            <!--&lt;!&ndash;</a>&ndash;&gt;-->
+            <!--&lt;!&ndash;</li>&ndash;&gt;-->
+            <!--<li class="table-view-cell media">-->
+              <!--<a class="navigate-right">-->
+                <!--<span class="media-object pull-left icon icon-pages"></span>-->
+                <!--<div class="media-body">-->
+                  <!--생년월일-->
+                <!--</div>-->
+              <!--</a>-->
+            <!--</li>-->
+            <!--<li class="table-view-cell media">-->
+              <!--<a class="navigate-right">-->
+                <!--<span class="media-object pull-left icon icon-pages"></span>-->
+                <!--<div class="media-body">-->
+                  <!--성별-->
+                <!--</div>-->
+              <!--</a>-->
+            <!--</li>-->
+          <!--</ul>-->
+        <!--</div>-->
+      {{/with}}
+    </div>
+  </div>
+</template>

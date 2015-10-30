@@ -1,0 +1,21 @@
+<template name="review">
+  <div id="review">
+    <!--{{> loginModal}}-->
+    <div class="container">
+      <div class="media"><a name="reviewWriteBtn" class="pull-right"><span class="glyphicon glyphicon-plus" style="font-size: 20px;"></span></a></div>
+      {{#each reviews}}
+        <div class="media well">
+          <a href="{{pathFor 'reviewDetail' _id=_id}}">
+            <div class="media-left">
+              <img class="media-object img-circle" src="{{프로필이미지}}">
+            </div>
+            <div class="media-body">
+              <h4>{{타이틀}}</h4>
+              <p>{{출발지}} > {{도착지}}</p>
+            </div>
+          </a>
+        </div>
+      {{/each}}
+    </div>
+  </div>
+</template>

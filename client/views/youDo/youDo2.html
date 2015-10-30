@@ -1,0 +1,26 @@
+<template name="youDo2">
+  {{>header pageTitle='해주세요'}}
+  <!-- Block button in standard bar fixed below top bar -->
+  <nav class="bar bar-standard bar-header-secondary">
+    <div class="segmented-control">
+      <a class="control-item" href="{{pathFor 'youDo'}}">해주세요(직접)</a>
+      <a class="control-item active">미션의뢰(대행)</a>
+    </div>
+  </nav>
+  <!-- Wrap all non-bar HTML in the .content div (this is actually what scrolls) -->
+  <div class="content">
+    <!--Use headings and paragraphs to title and describe sections of your app. Apply or wrap elements with .content-padded to give the content space around the screen.    <ul class="table-view">-->
+    <div class="content-padded">
+      <h5>직접 게시물을 등록하고 관리하기 번거로우세요?</h5>
+      <p>헬로미션에서 원하시는 결과물을 손쉽게 얻으실 수 있도록 미션대행 서비스를 지원하고 있습니다. 미션의 내용과 진행 기간에 따라 이용 요금이 측정됩니다.</p>
+      <form class="inputGroup">
+        <input type="text" placeholder="Full name">
+        <input type="email" placeholder="Email">
+        <textarea rows="4" placeholder="국가/날짜/기간/의뢰내용 등 가능한 구체적으로 입력해주세요."></textarea>
+        <textarea rows="2" placeholder="보상지급할 내용을 구체적으로 입력해주세요."></textarea>
+        <button class="btn btn-positive btn-block" name="btnSubmit">Submit</button>
+      </form>
+      <!--<img src="images/btn_yellowid.png" name="kakaoTalk">-->
+    </div>
+  </div>
+</template>

@@ -1,0 +1,66 @@
+<template name="reviewDetail">
+  <div id="reviewDetail">
+    <div class="container">
+      <div class="well">
+        {{#with objReview}}
+          <div class="userInfo">
+            <ul class="list-inline">
+              <li>
+                <img src="{{프로필이미지}}" class="img-circle">
+              </li>
+              <li>
+                <a href="{{pathFor 'profile' userId=작성자정보._id}}">{{작성자정보.profile.firstName}} {{작성자정보.profile.lastName}}</a>
+                <br>
+                {{작성일시}}
+              </li>
+              {{#if myContents}}
+                <li class="pull-right">
+                  <!--<a href="{{pathFor 'missionEdit' _id=_id}}"><span class="glyphicon glyphicon-edit"></span></a>-->
+                  <a href="#" name="reviewRemoveBtn"><span class="glyphicon glyphicon-remove"></span></a>
+                </li>
+              {{/if}}
+            </ul>
+          </div>
+          <div class="detailInfo">
+            <h4>{{타이틀}}</h4>
+            <p>{{출발지}} > {{도착지}}</p>
+            <hr>
+            <p>{{{상세내용}}}</p>
+            <ul class="list-unstyled">
+              {{#each 첨부이미지}}
+                <li><img src="{{후기이미지}}" width="100%"></li>
+              {{/each}}
+            </ul>
+            <hr>
+          </div>
+        {{/with}}
+        <div class="comments">
+          <div class="formGroup">
+            <textarea class="form-control" rows="2" placeholder="comment" name="comment"></textarea>
+            <br>
+            <button class="btn btn-success pull-right" style="margin-top: -8px;" name="btnCommentSave">save</button>
+          </div>
+          <hr>
+          {{#each comments}}
+            <div class="commentContent">
+              <ul class="list-inline">
+                <li>
+                  <img src="{{프로필이미지}}" class="img-circle">
+                </li>
+                <li>
+                  <a href="{{pathFor 'profile' userId=작성자정보._id}}">{{작성자정보.profile.firstName}} {{작성자정보.profile.lastName}}</a>
+                  <br>
+                  {{작성일시}}
+                </li>
+                {{#if myContents}}
+                  <li class="pull-right"><button type="button" name="btnCommentRemove"><span class="glyphicon glyphicon-remove"></span></button></li>
+                {{/if}}
+              </ul>
+              <p>{{{댓글}}}</p>
+            </div>
+          {{/each}}
+        </div>
+      </div>
+    </div>
+  </div>
+</template>
